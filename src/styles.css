@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Estilos base para los tabs */
+.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab__text-label {
+  color: #2c3e50 !important;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/* Tab activo */
+.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+  color: #ff9800 !important;
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* Indicador de tab activo */
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: #ff9800 !important;
+}
+
+/* Hover effect en los tabs */
+.mat-mdc-tab:not(.mat-mdc-tab-disabled):hover .mdc-tab__text-label {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Contenedor de tabs */
+.mat-mdc-tab-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Label container */
+.mat-mdc-tab-labels {
+  background: white;
+}
+
+/* Ripple effect personalizado */
+.mat-mdc-tab .mat-ripple-element {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+}
