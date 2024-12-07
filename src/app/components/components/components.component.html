@@ -1,0 +1,197 @@
+<div class="components-section">
+  <h2>Componentes</h2>
+
+  <section>
+    <h3>Botones</h3>
+    <div class="component-demo">
+      <button mat-flat-button class="custom-button">Botón Principal</button>
+      <button mat-flat-button class="custom-button" disabled>
+        Botón Deshabilitado
+      </button>
+      <div class="code-preview">
+        <pre><code>{{buttonCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Badges de Estado</h3>
+    <div class="component-demo">
+      <span class="status-badge status-existencia">Existencia</span>
+      <span class="status-badge status-agotado">Agotado</span>
+      <div class="code-preview">
+        <pre><code>{{badgeCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Cards</h3>
+    <div class="component-demo">
+      <div class="demo-card">
+        <h4>Título de Card</h4>
+        <p>Contenido de ejemplo para la card</p>
+      </div>
+      <div class="code-preview">
+        <pre><code>{{cardCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Tabla</h3>
+    <div class="component-demo">
+      <div class="table-container">
+        <div class="table-header"></div>
+        <table mat-table [dataSource]="cookies" class="modern-table">
+          <!-- Select Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>Seleccionar</th>
+            <td mat-cell *matCellDef="let cookie">
+              <mat-radio-button
+                class="custom-radio"
+                color="accent"
+                [value]="cookie.name"
+              >
+              </mat-radio-button>
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let cookie">{{ cookie.name }}</td>
+          </ng-container>
+
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let cookie">{{ cookie.description }}</td>
+          </ng-container>
+
+          <!-- Stock Column -->
+          <ng-container matColumnDef="stock">
+            <th mat-header-cell *matHeaderCellDef>Stock</th>
+            <td mat-cell *matCellDef="let cookie">
+              <span [class]="cookie.stockClass">{{ cookie.stock }}</span>
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let cookie">
+              <span class="status-badge" [class]="cookie.statusClass">
+                {{ cookie.status }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Price Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Precios</th>
+            <td mat-cell *matCellDef="let cookie">
+              <div class="price-container">
+                <span class="price-item">Unit: ${{ cookie.prices.unit }}</span>
+                <span class="price-item"
+                  >500g: ${{ cookie.prices.medium }}</span
+                >
+                <span class="price-item">1kg: ${{ cookie.prices.large }}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+        </mat-paginator>
+      </div>
+      <div class="code-preview">
+        <pre><code>{{tableCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Inputs</h3>
+    <div class="component-demo">
+      <mat-form-field appearance="outline">
+        <input matInput type="number" formControlName="quantity" />
+      </mat-form-field>
+    </div>
+    <div class="component-demo">
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de venta</mat-label>
+        <mat-select formControlName="saleType">
+          <mat-option value="unit">Por unidad</mat-option>
+          <mat-option value="weight">Por peso (g)</mat-option>
+          <mat-option value="package_500">Paquete 500g</mat-option>
+          <mat-option value="package_1000">Paquete 1000g</mat-option>
+          <mat-option value="amount">Monetario ($)</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <section>
+    <h3>Paginador</h3>
+    <div class="component-demo">
+      <div class="paginator-demo">
+        <mat-paginator
+          [length]="100"
+          [pageSize]="5"
+          [pageSizeOptions]="[5, 10, 25]"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </div>
+      <div class="code-preview">
+        <pre><code>{{paginatorCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Drag and Drop Kanban</h3>
+    <div class="component-demo">
+      <div class="production-container-demo">
+        <div class="stages-container">
+          <div class="stage">
+            <h3>Preparación</h3>
+            <div class="stage-list" id="preparacion">
+              <div class="stage-item">
+                <h4>Ejemplo Item</h4>
+                <p class="description">Descripción del item de ejemplo</p>
+                <div class="cookie-details">
+                  <span class="price">Precio: $10</span>
+                  <span class="stock">Stock: 5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code-preview">
+        <pre><code>{{dragDropCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Snackbar</h3>
+    <div class="component-demo">
+      <button
+        mat-flat-button
+        class="custom-button"
+        (click)="openSnackBar('¡Operación exitosa!', 'Cerrar')"
+      >
+        Mostrar Snackbar
+      </button>
+      <div class="code-preview">
+        <pre><code>{{snackbarCode}}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

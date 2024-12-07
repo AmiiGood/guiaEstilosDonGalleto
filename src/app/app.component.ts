@@ -22,6 +22,9 @@ import { Component } from '@angular/core';
         <mat-tab label="Tipografía">
           <app-typography></app-typography>
         </mat-tab>
+        <mat-tab label="Iconografía">
+          <app-iconography></app-iconography>
+        </mat-tab>
         <mat-tab label="Espaciado">
           <app-spacing></app-spacing>
         </mat-tab>

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 html,
 body {
   height: 100%;
@@ -47,4 +47,12 @@ body {
 /* Ripple effect personalizado */
 .mat-mdc-tab .mat-ripple-element {
   background-color: rgba(255, 152, 0, 0.1) !important;
+}
+
+.mat-mdc-snack-bar-container {
+  &.mat-mdc-snack-bar-container {
+    --mdc-snackbar-container-color: #333333;
+    --mat-snack-bar-button-color: #ff4081;
+    --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  }
 }

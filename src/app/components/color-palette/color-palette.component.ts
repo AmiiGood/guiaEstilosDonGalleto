@@ -52,6 +52,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           </div>
         </div>
       </div>
+
+      <h3>Colores de UI</h3>
+      <div class="color-grid">
+        <div class="color-card" *ngFor="let color of uiColors">
+          <div
+            class="color-preview"
+            [style.background-color]="color.value"
+            (click)="copyColor(color.value)"
+          ></div>
+          <div class="color-info">
+            <span class="color-name">{{ color.name }}</span>
+            <span class="color-value">{{ color.value }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   `,
   styles: [
@@ -113,8 +128,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ColorPaletteComponent {
   primaryColors = [
     { name: 'Primary Orange', value: '#ff9800' },
-    { name: 'Hover Orange', value: '#ffa726' },
+    { name: 'Hover Light Orange', value: '#ffa726' },
+    { name: 'Hover Dark Orange', value: '#f57c00' },
     { name: 'Dark Background', value: '#2d2927' },
+    { name: 'Snackbar Background', value: '#333333' },
   ];
 
   textColors = [
@@ -122,12 +139,32 @@ export class ColorPaletteComponent {
     { name: 'Secondary Text', value: '#6c757d' },
     { name: 'Menu Text Light', value: '#d6d3d1' },
     { name: 'Menu Icon', value: '#a8a29e' },
+    { name: 'Table Header', value: '#4a5568' },
+    { name: 'Detail Header', value: '#2d3748' },
+    { name: 'Count Icon', value: '#718096' },
+    { name: 'Units Info', value: '#666' },
+    { name: 'Success Text', value: '#046c4e' },
+    { name: 'Warning Text', value: '#c27803' },
+    { name: 'Danger Text', value: '#c81e1e' },
+    { name: 'Delete Action', value: '#ff4444' },
+    { name: 'White Text', value: '#ffffff' },
+    {name: 'Snackbar Text', value: '#ff4081'},
   ];
 
   statusColors = [
-    { name: 'Success', value: '#046c4e' },
-    { name: 'Error', value: '#c81e1e' },
-    { name: 'Warning', value: '#c27803' },
+    { name: 'Preparación', value: '#818cf8' },
+    { name: 'Horneado', value: '#fb923c' },
+    { name: 'Enfriamiento', value: '#38bdf8' },
+    { name: 'Lista', value: '#4ade80' },
+  ];
+
+  uiColors = [
+    { name: 'Background Light', value: '#f8f9fa' },
+    { name: 'Table Header BG', value: '#f7fafc' },
+    { name: 'Border Light', value: '#e9ecef' },
+    { name: 'Table Border', value: '#e2e8f0' },
+    { name: 'Border Dark', value: '#cbd5e1' },
+    { name: 'Placeholder Text', value: '#94a3b8' },
   ];
 
   constructor(private clipboard: Clipboard, private snackBar: MatSnackBar) {}
